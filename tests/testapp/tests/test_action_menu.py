@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup as bs
+# from bs4 import BeautifulSoup as bs
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.test import TestCase
