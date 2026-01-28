@@ -22,7 +22,8 @@ Welcome to django-grouped-admin-actions
 Description
 ===========
 Improve the usability of your admin action dropdown by using option groups and
-the action's docstrings as title tags.
+the action's docstrings as title tags. You might also pass in permissions for
+a whole action group.
 
 
 Installation
@@ -34,6 +35,32 @@ Install from pypi.org::
 
 Usage
 =====
+Setup your admin actions with meaningful docstrings and use action groups as
+decorator::
+
+    from grouped_admin_actions.admin import action_group
+
+    group_one = ActionGroup("Action 1")
+    group_two = ActionGroup("Action 2", permissions=['your_app.special_permission'])
+
+    @group_one
+    def action_one(modeladmin, request, queryset):
+        """This is action one in group 1."""
+        ...
+
+    @group_one
+    def action_two(modeladmin, request, queryset):
+        """This is action two in group 1."""
+        ...
+
+    @group_two
+    def action_three(modeladmin, request, queryset):
+        """
+        This is action three in group 2. Only visible for users with
+        'your_app.special_permission'.
+        """
+        ...
+
 Use the `GroupedAdminActionsMixin` in your `ModelAdmin` classes::
 
     from django.contrib import admin
@@ -49,28 +76,6 @@ Use the `GroupedAdminActionsMixin` in your `ModelAdmin` classes::
             ...
         ]
 
-Setup your admin actions with meaningful docstrings and use action groups as
-decorator::
-
-    from grouped_admin_actions.admin import action_group
-
-    group_one = ActionGroup("Action 1")
-    group_two = ActionGroup("Action 2")
-
-    @group_one
-    def action_one(modeladmin, request, queryset):
-        """This is action one in group 1."""
-        ...
-
-    @group_one
-    def action_two(modeladmin, request, queryset):
-        """This is action two in group 1."""
-        ...
-
-    @group_two
-    def action_three(modeladmin, request, queryset):
-        """This is action three in group 2."""
-        ...
-
+That's it!
 Now you get a grouped action dropdown in your dango admin changelist views with
 the action's docstring as title tag of each option.
