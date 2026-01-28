@@ -1,6 +1,6 @@
-===============================
+=======================================
 Welcome to django-grouped-admin-actions
-===============================
+=======================================
 
 .. image:: https://github.com/thomst/django-grouped-admin-actions/actions/workflows/ci.yml/badge.svg
    :target: https://github.com/thomst/django-grouped-admin-actions/actions/workflows/ci.yml
