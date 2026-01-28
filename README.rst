@@ -21,9 +21,8 @@ Welcome to django-grouped-admin-actions
 
 Description
 ===========
-You habe lots of admin actions in your django admin? Improve the usability of
-your admin action dropdown by using option groups and the action's docstring as
-title tag.
+Improve the usability of your admin action dropdown by using option groups and
+the action's docstrings as title tags.
 
 
 Installation
