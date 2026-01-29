@@ -1,4 +1,4 @@
-name: Publish django-generic-admin-actions to pypi
+name: Publish django-grouped-admin-actions to pypi
 
 on:
   # Runs on pushing tags
